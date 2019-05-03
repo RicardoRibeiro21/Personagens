@@ -1,5 +1,5 @@
 import React,  {Component } from 'react';
-import { Text, StyleSheet, Image, FlatList} from 'react-native';
+import { Text, StyleSheet, Image, View, FlatList} from 'react-native';
 
 class Personagens extends Component(){
     constructor(){

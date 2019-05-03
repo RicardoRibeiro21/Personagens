@@ -1,5 +1,5 @@
 import React, {Component } from 'react';
-import { StyleSheet, Image, Text} from 'react-native';
+import { StyleSheet, Image, View, Text} from 'react-native';
 class Desenvolvedor extends Component{
     constructor(){
         super();
