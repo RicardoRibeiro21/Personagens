@@ -1,7 +1,13 @@
-import React, {Component } from 'react';
-import { StyleSheet, Image, View, Text} from 'react-native';
-class Desenvolvedor extends Component{
-    constructor(){
+import React, { Component } from 'react';
+import { Image, View, Text } from 'react-native';
+
+class Desenvolvedor extends Component {
+    static navigationOptions = {
+        tabBarIcon: ({ tintColor }) => (
+          <Text>Personagens</Text>
+        )
+      };
+    constructor() {
         super();
         this.state = {
             Nome: "Ricardo Ribeiro",
@@ -9,13 +15,15 @@ class Desenvolvedor extends Component{
             idade: "18 anos"
         }
     }
-    render(){
-        return(
+    render() {
+        return (
             <View>
                 <Text>{this.state.Nome}</Text>
-                <Image src={this.state.img} />
+                <Image source={this.state.img} />
                 <Text>{this.state.idade}</Text>
             </View>
         )
     }
 }
+
+export default Desenvolvedor;

@@ -1,35 +1,42 @@
-import React,  {Component } from 'react';
-import { Text, StyleSheet, Image, View, FlatList} from 'react-native';
+import React, { Component } from 'react';
+import { Text, View, FlatList } from 'react-native';
 
-class Personagens extends Component(){
-    constructor(){
+class Personagens extends Component() {
+    static navigationOptions = {
+        tabBarIcon: ({ tintColor }) => (
+          <Text>Desenvolvedor</Text>
+        )
+      };
+    constructor() {
         super();
         this.state = {
             listaPersonagens: []
         }
     }
-    componentDidMounth(){
+    componentDidMount() {
         this.carregarPersonagens();
     }
     carregarPersonagens = async () => {
-        const resposta = await api.get("/");
+        const resposta = await api.get("/personagens");
         const dadosApi = resposta.data;
-        this.setState({listaPersonagens :  dadosApi});
+        this.setState({ listaPersonagens: dadosApi });
     }
-    render(){
-        return(
+    render() {
+        return (
             <View>
-                <FlatList 
-                data={this.state.listaPersonagens}
-                keyExtractor={item => item.id}
-                renderItem={this.renderItem}/>
+                <FlatList
+                    data={this.state.listaPersonagens}
+                    keyExtractor={item => item.id}
+                    renderItem={this.renderItem} />
             </View>
         )
     }
-    renderItem(){
+    renderItem() {
         <View>
-            <Text>{item.Titulo}</Text>
-            <Image>{item.acao}</Image>
+            <Text>{item.nome}</Text>
+            <Text>{item.lancamento}</Text>
+            {/* <Image>{item.urlImagem}</Image> */}
         </View>
     }
 }
+export default Personagens;

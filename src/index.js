@@ -1,15 +1,17 @@
 import Desenvolvedor from './pages/desenvolvedor';
 import Personagens from './pages/personagens';
+import { createBottomTabNavigator } from "react-navigation";
 
-const MainNavigator = createBottomTabNavigator({
-    Personagens,
-    Desenvolvedor
-    },
-
+const MainNavigator = createBottomTabNavigator(
     {
-        swipEnabled = true,
+        Personagens,
+        Desenvolvedor
+    },
+    {
+        swipeEnabled = true,
         showLabel = false,
     }
 
-)  
-export default MainNavigator;
+);
+
+export default createBottomTabNavigator(MainNavigator);
